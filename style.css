@@ -1,0 +1,96 @@
+body{
+    height: 120%;
+    padding-top: 40px;
+    background: 
+    linear-gradient(to bottom left, #FFF, #06A06A55 80%), linear-gradient(60deg, #0badad 10%, #0076bb 20%);
+    
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif
+}
+
+#box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8,#box9{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    margin: 2px;
+    background: transparent;
+}
+#box1{
+    border: none;
+}
+#box2{
+    border: none;
+    border-left: 5px solid;
+    border-right: 5px solid; 
+}
+#box3{
+    border: none;
+}
+#box4{
+    border: none;
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+}
+#box5{
+    border: 5px solid;
+}
+#box6{
+    border: none;
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+}
+#box7{
+    border: none;
+}
+#box8{
+    border: none;
+    border-left: 5px solid;
+    border-right: 5px solid; 
+}
+#box9{
+    border: none;
+}
+.board{
+    width: 44%;
+    display: block;
+    margin: auto;
+}
+@media screen and (max-width: 480px){
+    .board{
+        width: 100%;
+    }
+    #box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8,#box9{
+        width: 30%;
+        height: 120px;
+    }
+}
+@media screen and (min-width: 800px){
+    #box1, #box4, #box7{
+        margin-left: 22%;
+    }
+}
+
+h1,h2{
+    text-align: center;
+}
+input[type=text].name{
+    height: 30px;
+    padding-top: 10px;
+    width: 200px;
+}
+
+button{
+    width: 120px;
+    height: 50px;
+    border: none;
+    background: #0bad49;
+    color: aliceblue;
+    display: block;
+    margin: auto;
+}
+button:hover{
+    opacity: 0.9;
+}
+button:focus{
+    opacity: 0.75;
+}

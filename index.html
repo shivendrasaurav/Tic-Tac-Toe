@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <script src="game.js"></script>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>X : <input id="namex" type="text" class="name" placeholder="Input Name for Player X"> : <span id="scorex">0</span></h1>
+        <h1>O : <input id="namey" type="text" class="name" placeholder="Input Name for Player O"> : <span id="scorey">0</span></h1>
+        <h2>X Gets the first chance</h2>
+        <div class="board">
+            <input type="text" id="box1" onclick="fill1();" value=" "/>
+            <input type="text" id="box2" onclick="fill2();" value=" "/>
+            <input type="text" id="box3" onclick="fill3();" value=" "/><br>
+            <input type="text" id="box4" onclick="fill4();" value=" "/>
+            <input type="text" id="box5" onclick="fill5();" value=" "/>
+            <input type="text" id="box6" onclick="fill6();" value=" "/><br>
+            <input type="text" id="box7" onclick="fill7();" value=" "/>
+            <input type="text" id="box8" onclick="fill8();" value=" "/>
+            <input type="text" id="box9" onclick="fill9();" value=" "/><br>
+        </div>
+            <br>
+        <h1 id="result"></h1>
+        <button onclick="resetboard();">Reset Board</button>
+    </body>
+</html>
