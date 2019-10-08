@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="manifest" href="manifest.webmanifest">
+        <title>Tic Tac Toe</title>
+        <script src="game.js"></script>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="pwabuilder-sw.js"></script>
+        <script>
+            
+            let deferredPrompt = null;
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            });
+
+            async function install() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                console.log(deferredPrompt)
+                deferredPrompt.userChoice.then(function(choiceResult){
+
+                if (choiceResult.outcome === 'accepted') {
+                console.log('Your PWA has been installed');
+                } else {
+                console.log('User chose to not install your PWA');
+                }
+
+                deferredPrompt = null;
+
+                });
+
+            
+            }
+            }
+
+        </script>
+        <script>
+            function checkinstall(){
+                if (window.matchMedia('(display-mode: standalone)').matches) {  
+                    document.getElementById("install_button").style.display=("none");
+                    console.log('display-mode is standalone');
+                }  
+            }
+        </script>
+    </head>
+    <body>
+        <h1>X : <input id="namex" type="text" class="name" placeholder="Input Name for Player X"> : <span id="scorex">0</span></h1>
+        <h1>O : <input id="namey" type="text" class="name" placeholder="Input Name for Player O"> : <span id="scorey">0</span></h1>
+        <h2>X Gets the first chance</h2>
+        <div class="board">
+            <input type="text" id="box1" onclick="fill1();" value=" "/>
+            <input type="text" id="box2" onclick="fill2();" value=" "/>
+            <input type="text" id="box3" onclick="fill3();" value=" "/><br>
+            <input type="text" id="box4" onclick="fill4();" value=" "/>
+            <input type="text" id="box5" onclick="fill5();" value=" "/>
+            <input type="text" id="box6" onclick="fill6();" value=" "/><br>
+            <input type="text" id="box7" onclick="fill7();" value=" "/>
+            <input type="text" id="box8" onclick="fill8();" value=" "/>
+            <input type="text" id="box9" onclick="fill9();" value=" "/><br>
+        </div>
+            <br>
+        <h1 id="result"></h1>
+        <button onclick="resetboard();">Reset Board</button>
+    </body>
+    <script>
+        // This is the "Offline copy of pages" service worker
+
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker
+                .register("pwabuilder-sw.js", {
+                    scope: "./"
+                })
+                .then(function (reg) {
+                    console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                });
+            }
+        }
+    </script>
+</html>

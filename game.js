@@ -211,3 +211,13 @@ function resetboard(){
     document.getElementById("box9").disabled = false;
     count = 0;
 }
+
+
+function openmod1(){
+    document.getElementById("install_button_modal").style.display="Block";
+    document.getElementById("body").style.filter="saturate(125%) blur(10px)";
+}
+function closemod1(){
+    document.getElementById("install_button_modal").style.display="None";
+    document.getElementById("body").style.filter="blur(0px)";
+}
