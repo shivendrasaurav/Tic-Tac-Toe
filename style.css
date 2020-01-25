@@ -1,17 +1,14 @@
 body{
-    height: 120%;
-    padding-top: 40px;
-    background: 
-    linear-gradient(to bottom left, #FFF, #06A06A55 80%), linear-gradient(60deg, #0badad 10%, #0076bb 20%);
-    
-    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif
+    padding-bottom: 120%;
+    background: linear-gradient(to bottom left, #ef32d9 , #89fffd);
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 #box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8,#box9{
-    width: 100px;
-    height: 100px;
+    width: 25%;
+    height: 16%;
     text-align: center;
-    font-size: 50px;
+    font-size: 48px;
     margin: 2px;
     background: transparent;
 }
@@ -56,17 +53,26 @@ body{
     margin: auto;
 }
 @media screen and (max-width: 480px){
+  body{
+    padding-bottom: 400%;
+  }
     .board{
         width: 100%;
     }
     #box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8,#box9{
         width: 30%;
-        height: 120px;
+        height: 10%;
     }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px){
+    #box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8,#box9{
+        width: 22%;
+        height: 90px;
+  }
 }
 @media screen and (min-width: 800px){
     #box1, #box4, #box7{
-        margin-left: 22%;
+        margin-left: 20%;
     }
 }
 
@@ -74,9 +80,9 @@ h1,h2{
     text-align: center;
 }
 input[type=text].name{
-    height: 30px;
-    padding-top: 10px;
+    padding: 15px;
     width: 200px;
+    border: none;
 }
 
 button{
@@ -113,6 +119,15 @@ button:focus{
     background: #FFF;
     overflow-y: auto;
     margin-top: 5%;
-    scrollbar-width: 0px;
 }
 .modal_container::-webkit-scrollbar{display: none;}
+
+#one_player_name, #one_player_game, #two_player_name,#two_player_game{
+  display: none;
+}
+#main_menu, #one_player_name, #one_player_game, #two_player_name, #two_player_game{
+  position: fixed;
+  top: 10;
+  height: 80%;
+  margin: 5%;
+}

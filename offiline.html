@@ -4,12 +4,13 @@
         <link rel="manifest" href="manifest.webmanifest">
         <title>Tic Tac Toe</title>
         <script src="game.js"></script>
-        <link href="style.css" type="text/css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="https://fluentdesignforweb.github.io/fluent.css">
+        <link type="text/css" rel="stylesheet" href="https://fluentdesignforweb.github.io/Icons/css/fluent-icons.css">
+        <link type="text/css" rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="pwabuilder-sw.js"></script>
         <script>
-            
-            let deferredPrompt = null;
+let deferredPrompt = null;
 
             window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -34,38 +35,122 @@
 
                 });
 
-            
             }
+            closeinstaller();
             }
 
+            function showinstaller(){
+                document.getElementById("install_button").style.display="Block";
+            
+            }
+            
+            function closeinstaller(){
+                document.getElementById("install_button").style.display="none";
+            }
         </script>
         <script>
             function checkinstall(){
                 if (window.matchMedia('(display-mode: standalone)').matches) {  
-                    document.getElementById("install_button").style.display=("none");
+                    closeinstaller();
                     console.log('display-mode is standalone');
                 }  
+                else
+                    showinstaller();
             }
         </script>
     </head>
-    <body>
-        <h1>X : <input id="namex" type="text" class="name" placeholder="Input Name for Player X"> : <span id="scorex">0</span></h1>
-        <h1>O : <input id="namey" type="text" class="name" placeholder="Input Name for Player O"> : <span id="scorey">0</span></h1>
-        <h2>X Gets the first chance</h2>
-        <div class="board">
-            <input type="text" id="box1" onclick="fill1();" value=" "/>
-            <input type="text" id="box2" onclick="fill2();" value=" "/>
-            <input type="text" id="box3" onclick="fill3();" value=" "/><br>
-            <input type="text" id="box4" onclick="fill4();" value=" "/>
-            <input type="text" id="box5" onclick="fill5();" value=" "/>
-            <input type="text" id="box6" onclick="fill6();" value=" "/><br>
-            <input type="text" id="box7" onclick="fill7();" value=" "/>
-            <input type="text" id="box8" onclick="fill8();" value=" "/>
-            <input type="text" id="box9" onclick="fill9();" value=" "/><br>
+    <body onload="checkinstall()">
+      <div class="content">
+        <div id="main_menu" class="page_container center primary_white">
+          <h1>Tic Tac Toe</h1>
+          <h3 class="ta_center">Select A Mode</h3>
+          <br><br>
+          <button class="large primary_inverted" onclick="spg()">Single Player</button><br>
+          <button class="large primary_inverted" onclick="mpg()">Two Players</button><br><br>
+          <button class="large primary_inverted" id="install_button" onclick="install()">Install Tic Tac Toe</button>
+
         </div>
-            <br>
-        <h1 id="result"></h1>
-        <button onclick="resetboard();">Reset Board</button>
+
+        <div id="one_player_name" class="page_container center primary_white">
+          <h1>Coming Soon</h1><br><br><br><br>
+          <button class="primary_inverted large center" onclick="mainmenu()">Main Menu</button>
+        </div>
+
+        <div id="two_player_name" class="page_container center primary_white">
+          <h3 class="ta_center">Enter Names</h3>
+          <br><br>
+          <input class="center" id="namex" type="text" placeholder="Input Name for Player X"><br><br>
+          <input class="center" id="namey" type="text" placeholder="Input Name for Player Y"><br><br><br>
+          <h5 class="ta_center">Player X Will Get First Chance</h5>
+          <br><br>
+          <div class="page_container columns small10 large8 medium8 center">
+            <button class="primary_inverted " onclick="mainmenu()" style="display: inline-block;">Main Menu</button>
+            <button class="primary_inverted" onclick="tpgame()" style="display: inline-block;">Proceed</button><br><br>
+          </div>
+        </div>
+
+        <div id="one_player_game" class="page_container center primary_white">
+          <h5 class="ta_center"><span id="playerxname1">Player X</span> : <span id="scorex1">0</span></h5>
+          <h5 class="ta_center"><span id="playeryname1">Player Y</span> :  <span id="scorey1">0</span></h5>
+          <div class="board">
+              <input type="text" id="box11" onclick="fill1();" value=" "/>
+              <input type="text" id="box21" onclick="fill2();" value=" "/>
+              <input type="text" id="box31" onclick="fill3();" value=" "/><br>
+              <input type="text" id="box41" onclick="fill4();" value=" "/>
+              <input type="text" id="box51" onclick="fill5();" value=" "/>
+              <input type="text" id="box61" onclick="fill6();" value=" "/><br>
+              <input type="text" id="box71" onclick="fill7();" value=" "/>
+              <input type="text" id="box81" onclick="fill8();" value=" "/>
+              <input type="text" id="box91" onclick="fill9();" value=" "/><br>
+          </div>
+              <br>
+          <h3 id="result1" class="ta_center"></h3>
+          <div class="page_container ta_center">
+            <button class=" primary_inverted" onclick="resetboard();" style="display: inline-block;">Reset Board</button>
+            <button class=" primary_inverted" id="reset" onclick="reset()" style="display: inline-block;">Reset Score</button>
+            <button class=" primary_inverted" id="install_button" onclick="mpg()" style="display: inline-block;">Name Change</button>
+            <button class=" primary_inverted " onclick="mainmenu()" style="display: inline-block;">Main Menu</button><br><br>
+          </div>
+        </div>
+
+        <div id="two_player_game" class="page_container center primary_white">
+          <h5 class="ta_center"><span id="playerxname">Player X</span> : <span id="scorex">0</span></h5>
+          <h5 class="ta_center"><span id="playeryname">Player Y</span> :  <span id="scorey">0</span></h5>
+          <div class="board">
+              <input type="text" id="box1" onclick="fill1();" value=" "/>
+              <input type="text" id="box2" onclick="fill2();" value=" "/>
+              <input type="text" id="box3" onclick="fill3();" value=" "/><br>
+              <input type="text" id="box4" onclick="fill4();" value=" "/>
+              <input type="text" id="box5" onclick="fill5();" value=" "/>
+              <input type="text" id="box6" onclick="fill6();" value=" "/><br>
+              <input type="text" id="box7" onclick="fill7();" value=" "/>
+              <input type="text" id="box8" onclick="fill8();" value=" "/>
+              <input type="text" id="box9" onclick="fill9();" value=" "/><br>
+          </div>
+              <br>
+          <h3 id="result" class="ta_center"></h3>
+          <div class="page_container ta_center">
+            <button class=" primary_inverted" onclick="resetboard();" style="display: inline-block;">Reset Board</button>
+            <button class=" primary_inverted" id="reset" onclick="reset()" style="display: inline-block;">Reset Score</button>
+            <button class=" primary_inverted" id="install_button" onclick="mpg()" style="display: inline-block;">Name Change</button>
+            <button class=" primary_inverted " onclick="mainmenu()" style="display: inline-block;">Main Menu</button><br><br>
+          </div>
+        </div>
+      </div>
+
+        <div class="modal_container" id="install_button_surface">
+          <div class="modal_content zi2">
+              <br><br><br><br><br><br><br><br>
+              <div class="column large6 medium8 small12 center">
+                  <button class="circular primary_red right" style="width: 50px; height: 50px; padding: 0px;" onclick="closeinstaller()">
+                      <i class="ms-Icon ms-Icon--Cancel"></i>
+                  </button><br><br><br><br>
+                  <button id="install_button" class="primary_blue center" onclick="install();" style="height: 100px; width: 300px; font-size: 28px;">
+                      Install Tic Tac Toe
+                  </button>
+              </div>
+          </div>
+        </div>
     </body>
     <script>
         // This is the "Offline copy of pages" service worker

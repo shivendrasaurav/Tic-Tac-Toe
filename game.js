@@ -221,3 +221,64 @@ function closemod1(){
     document.getElementById("install_button_modal").style.display="None";
     document.getElementById("body").style.filter="blur(0px)";
 }
+
+
+function spg(){
+  document.getElementById("main_menu").style.display = "none";
+  document.getElementById("one_player_name").style.display = "block"; 
+  document.getElementById("one_player_game").style.display = "none"; 
+  document.getElementById("two_player_name").style.display = "none"; 
+  document.getElementById("two_player_game").style.display = "none"; 
+
+}
+
+function mpg(){
+  document.getElementById("main_menu").style.display = "none";
+  document.getElementById("one_player_name").style.display = "none"; 
+  document.getElementById("one_player_game").style.display = "none"; 
+  document.getElementById("two_player_name").style.display = "block"; 
+  document.getElementById("two_player_game").style.display = "none"; 
+}
+
+function opgame(){
+  document.getElementById("main_menu").style.display = "none";
+  document.getElementById("one_player_name").style.display = "none"; 
+  document.getElementById("one_player_game").style.display = "block"; 
+  document.getElementById("two_player_name").style.display = "none"; 
+  document.getElementById("two_player_game").style.display = "none"; 
+
+
+  var namex = document.getElementById("namex").value;
+  var namey = "CPU";
+  document.getElementById("playerxname").innerHTML = namex;
+  document.getElementById("playeryname").innerHTML = namey;
+}
+
+
+function tpgame(){
+  document.getElementById("main_menu").style.display = "none";
+  document.getElementById("one_player_name").style.display = "none"; 
+  document.getElementById("one_player_game").style.display = "none"; 
+  document.getElementById("two_player_name").style.display = "none"; 
+  document.getElementById("two_player_game").style.display = "block"; 
+
+
+  var namex = document.getElementById("namex").value;
+  var namey = document.getElementById("namey").value;
+  document.getElementById("playerxname").innerHTML = namex;
+  document.getElementById("playeryname").innerHTML = namey;
+}
+function mainmenu(){
+  document.getElementById("main_menu").style.display = "block";
+  document.getElementById("one_player_name").style.display = "none"; 
+  document.getElementById("one_player_game").style.display = "none"; 
+  document.getElementById("two_player_name").style.display = "none"; 
+  document.getElementById("two_player_game").style.display = "none"; 
+}
+
+function reset(){
+  scorex = 0;
+  scorey = 0;
+  document.getElementById("scorex").innerHTML = 0;
+  document.getElementById("scorey").innerHTML = 0;
+}
