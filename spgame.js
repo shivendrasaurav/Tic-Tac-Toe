@@ -72,28 +72,62 @@ function check1(){
         
     }
 }
+
+function winprob(){
+    
+}
+
+function make5(){
+    if(document.getElementById("box51").value==" "){
+        document.getElementById("box51").value="O";
+        document.getElementById("box51").disabled="true";
+        return;
+    }
+    else if(document.getElementById("box21").value==" "){
+        document.getElementById("box21").value="O";
+        document.getElementById("box21").disabled="true";
+        return;
+    }
+    else if(document.getElementById("box41").value==" "){
+        document.getElementById("box41").value="O";
+        document.getElementById("box41").disabled="true";
+        return;
+    }
+    else if(document.getElementById("box61").value==" "){
+        document.getElementById("box61").value="O";
+        document.getElementById("box61").disabled="true";
+        return;
+    }
+    else if(document.getElementById("box81").value==" "){
+        document.getElementById("box81").value="O";
+        document.getElementById("box81").disabled="true";
+        return;
+    }
+    else{
+        winprob();
+    }   
+}
+
 function fill11(){
     if(count%2==0){
         document.getElementById("box11").value="X";
         document.getElementById("box11").disabled="true";
     }
     else{
-        document.getElementById("box11").value="O";
-        document.getElementById("box11").disabled="true";
+        make5();
     }
 count++;
 console.log(count);
     check1();
-}
+    }
 function fill21(){
     if(count%2==0){
         document.getElementById("box21").value="X";
         document.getElementById("box21").disabled="true";
     }
     else{
-        document.getElementById("box21").value="O";
-        document.getElementById("box21").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -104,9 +138,8 @@ function fill31(){
         document.getElementById("box31").disabled="true";
     }
     else{
-        document.getElementById("box31").value="O";
-        document.getElementById("box31").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -117,9 +150,8 @@ function fill41(){
         document.getElementById("box41").disabled="true";
     }
     else{
-        document.getElementById("box41").value="O";
-        document.getElementById("box41").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -130,9 +162,8 @@ function fill51(){
         document.getElementById("box51").disabled="true";
     }
     else{
-        document.getElementById("box51").value="O";
-        document.getElementById("box51").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -143,9 +174,8 @@ function fill61(){
         document.getElementById("box61").disabled="true";
     }
     else{
-        document.getElementById("box61").value="O";
-        document.getElementById("box61").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -156,9 +186,8 @@ function fill71(){
         document.getElementById("box71").disabled="true";
     }
     else{
-        document.getElementById("box71").value="O";
-        document.getElementById("box71").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -169,9 +198,8 @@ function fill81(){
         document.getElementById("box81").disabled="true";
     }
     else{
-        document.getElementById("box81").value="O";
-        document.getElementById("box81").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -182,9 +210,8 @@ function fill91(){
         document.getElementById("box91").disabled="true";
     }
     else{
-        document.getElementById("box91").value="O";
-        document.getElementById("box91").disabled="true";
-    }    
+        make5();
+    }
 count++;
 console.log(count);
     check1();
@@ -231,15 +258,6 @@ function spg(){
   document.getElementById("two_player_game").style.display = "none"; 
 
 }
-
-function mpg(){
-  document.getElementById("main_menu").style.display = "none";
-  document.getElementById("one_player_name").style.display = "none"; 
-  document.getElementById("one_player_game").style.display = "none"; 
-  document.getElementById("two_player_name").style.display = "block"; 
-  document.getElementById("two_player_game").style.display = "none"; 
-}
-
 function opgame(){
   document.getElementById("main_menu").style.display = "none";
   document.getElementById("one_player_name").style.display = "none"; 
@@ -255,19 +273,6 @@ function opgame(){
 }
 
 
-function tpgame(){
-  document.getElementById("main_menu").style.display = "none";
-  document.getElementById("one_player_name").style.display = "none"; 
-  document.getElementById("one_player_game").style.display = "none"; 
-  document.getElementById("two_player_name").style.display = "none"; 
-  document.getElementById("two_player_game").style.display = "block"; 
-
-
-  var namex1 = document.getElementById("namex1").value;
-  var namey1 = document.getElementById("namey1").value;
-  document.getElementById("playerxname1").innerHTML = namex1;
-  document.getElementById("playeryname1").innerHTML = namey1;
-}
 
 function reset1(){
   scorex1 = 0;
